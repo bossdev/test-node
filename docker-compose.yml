@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+  app_mongo:
+    image: mongo:3.4
+    ports:
+      - 27017:27017
+    volumes:
+      - local-volume-mongo:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: rootza
+      MONGO_INITDB_ROOT_PASSWORD: secret
+      MONGODB_DATABASE: blogDB
+    restart: always
+volumes:
+  local-volume-mongo:
+    driver: local
